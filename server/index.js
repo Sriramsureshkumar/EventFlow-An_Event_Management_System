@@ -46,7 +46,7 @@ app.use("/user", dashboardRouter);
 app.use("/", adminRouter);
 app.use("/", eventRouter);
 app.get("/", (req, res) => {
-    res.send("Event Management micro services API.");
+    res.send("EventFlow API");
 });
 
 app.listen(process.env.PORT || 5000, () => {
