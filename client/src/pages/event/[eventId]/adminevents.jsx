@@ -206,7 +206,6 @@ function AdminEventPage() {
                                         About the Event
                                     </h3>
                                             <p
-                                                key={index}
                                                 className="text-gray-600 text-md"
                                             >
                                                 {eventData.description}
