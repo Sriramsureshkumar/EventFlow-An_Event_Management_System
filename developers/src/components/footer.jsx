@@ -5,7 +5,7 @@ function Footer() {
         <div className="foot">
             <center>
                 <p className="foot-text">
-                    Copyright {new Date().getFullYear()} | BIT Events
+                    Copyright {new Date().getFullYear()} | EventFlow
                 </p>
             </center>
         </div>
