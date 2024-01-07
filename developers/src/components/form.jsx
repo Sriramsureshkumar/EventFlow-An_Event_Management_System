@@ -9,7 +9,7 @@ function Form() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         const response = await fetch(
-            `http://localhost:5000/setadmin`,
+            `https://eventflow-server.onrender.com/setadmin`,
             {
                 method: "POST",
                 headers: {
