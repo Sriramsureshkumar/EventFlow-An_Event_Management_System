@@ -177,7 +177,7 @@ export default function signin({ adminIdCookie }) {
                                     as an admin for testing purposes by
                                     following this{" "}
                                     <a
-                                        href="https://invite-developers.vercel.app/"
+                                        href="https://eventflow-developers.onrender.com/"
                                         target="_blank"
                                         className="text-[color:var(--darker-secondary-color)]"
                                     >
