@@ -11,8 +11,15 @@ function EventPage() {
     const userId = getUserToken();
     const [eventData, setEventData] = useState([]);
     const [isUserRegistered, setIsUserRegistered] = useState(false);
+    const isTechnicalOrEducationalEvent = eventData && eventData.category && ["technical", "educational"].includes(eventData.category.toLowerCase());
 
     // function to handle share button click
+    let buttonLabel;
+    if (isUserRegistered) {
+        buttonLabel = isTechnicalOrEducationalEvent ? "Already Registered" : "Buy Tickets";
+    } else {
+        buttonLabel = isTechnicalOrEducationalEvent ? "Register" : "Buy Tickets";
+    }
     const share = () => {
         if (navigator.share) {
             navigator
@@ -146,9 +153,7 @@ function EventPage() {
                                         } text-white rounded focus:outline-none`}
                                         disabled={isUserRegistered}
                                     >
-                                        {isUserRegistered
-                                            ? "Already Registered"
-                                            : "Buy Tickets"}
+                                         {buttonLabel}
                                     </button>
                                 </div>
                             </div>
@@ -193,7 +198,7 @@ function EventPage() {
                                             </p>
                                         ))}
                                 </div>
-                                <div className="mb-4 bg-white px-6 py-4 rounded-lg shadow-md">
+                                {!isTechnicalOrEducationalEvent?(<div className="mb-4 bg-white px-6 py-4 rounded-lg shadow-md">
                                     <h3 className="text-xl font-semibold text-gray-900 mb-2">
                                         Ticket Prices
                                     </h3>
@@ -235,9 +240,7 @@ function EventPage() {
                                                     } text-white rounded focus:outline-none`}
                                                     disabled={isUserRegistered}
                                                 >
-                                                    {isUserRegistered
-                                                        ? "Registered"
-                                                        : "Buy Tickets"}
+                                                    {buttonLabel}
                                                 </button>
                                             </li>
                                         ))}
@@ -246,7 +249,17 @@ function EventPage() {
                                         *Caution: All ticket sales are final and
                                         non-refundable.
                                     </p>
+                                </div>):
+                                (
+                                    <div className="mb-4 bg-white px-6 py-4 rounded-lg shadow-md">
+                                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                                        Event Overview
+                                    </h3>
+                                    <p className="text-gray-600">
+                                        This {eventData.category} event is designed to provide attendees with deep insights into {eventData.category === 'technical' ? 'emerging technologies, hands-on workshops, and innovative solutions.' : 'academic insights, expert discussions, and learning opportunities.'} Don't miss out on this chance to expand your knowledge!
+                                    </p>
                                 </div>
+                                )}
                             </div>
                         </div>
                     </div>
