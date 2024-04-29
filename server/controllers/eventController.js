@@ -24,19 +24,16 @@ function sendCheckInMail(data) {
     let mailOptions = {
         from: process.env.NODE_MAILER_USER,
         to: data.email,
-        subject: `${data.name} You've Checked In - InVITe`,
+        subject: `${data.name} You've Checked In - EventFlow`,
         html: `Dear ${data.name},<br><br>
            <strong>Congratulations, you've successfully checked in to ${data.event}!</strong><br><br>
            Name: ${data.name}<br>
-           Registration Number: ${data.regNo}<br>
            Contact Number: ${data.number}<br><br>
            If you have any questions or concerns, please don't hesitate to contact us:<br>
-           Anurag Singh: 2002anuragksingh@gmail.com<br>
-           Devanshu Yadav: devanshu.yadav2020@vitbhopal.ac.in<br>
-           Saksham Gupta: saksham.gupta2020@vitbhopal.ac.in<br><br>
-           Thank you for choosing InVITe!<br><br>
+           Sriram Suresh: sriram.se21@bitsathy.ac.in<br>
+           Thank you for choosing EventFlow!<br><br>
            Best regards,<br>
-           The InVITe Team`,
+           The EventFlow Team`,
     };
 
     transporter.sendMail(mailOptions, function (err, success) {
